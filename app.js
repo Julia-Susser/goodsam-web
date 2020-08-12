@@ -23,3 +23,28 @@ app.post('/url', function(req, res) {
         res.send(shortUrl);
     });
 });
+
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'juliasusser@gmail.com',
+    pass: 'nathansucks3'
+  }
+});
+
+var mailOptions = {
+  from: 'juliasusser@gmail.com',
+  to: 'juliasusser@gmail.com',
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy!'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
