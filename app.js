@@ -16,6 +16,6 @@ app.post('/url', function(req, res) {
     const url = req.body.url;
 
     urlShortener.short(url, function(err, shortUrl){
-        res.send(shortUrl);
+        res.send('hey');
     });
 });
