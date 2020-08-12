@@ -20,7 +20,7 @@ app.post('/url', function(req, res) {
     });
 });
 
-const { calculateAverages, addClimateRowToObject, logNodeError, printQueryResults } = require('./utils');
+
 const sqlite = require('sqlite3');
 
 const db = new sqlite.Database('./db.sqlite');
