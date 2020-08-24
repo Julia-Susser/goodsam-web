@@ -1,6 +1,8 @@
 const https = require('https');
 const path = require('path');
 const fs = require('fs')
+const readline = require('readline');
+const {google} = require('googleapis');
 module.exports = function(app,firebase){
     app.get('/', function(req, res) {
     res.redirect("/login")
@@ -8,9 +10,7 @@ module.exports = function(app,firebase){
 
 
     app.get('/login', function(req, res) {
-      const fs = require('fs');
-      const readline = require('readline');
-      const {google} = require('googleapis');
+
 
       // If modifying these scopes, delete token.json.
       const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
