@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "firebase-admin": "^9.0.0",
+    "firebase": "^7.19.0",
+    "firebase-admin": "^9.1.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "node-url-shortener": "^1.1.9",
     "nodemailer": "^6.4.11"
   }
