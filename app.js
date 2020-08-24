@@ -15,7 +15,29 @@ const url = require('url');
 
 
 
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'juliasusser@gmail.com',
+    pass: 'nathansucks3'
+  }
+});
 
+var mailOptions = {
+  from: 'juliasusser@gmail.com',
+  to: 'juliasusser@gmail.com',
+  subject: "eheyeyyeyeyey",
+  text: "heyeyeyye"
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
 
 
 
