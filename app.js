@@ -49,5 +49,7 @@ app.listen(port, () => console.log(`listening on port ${port}!`));
 
 
 
+require('./home-router.js')(app,firebase);
+
 require('./signup-router.js')(app,firebase);
 require('./login-router.js')(app,firebase);
