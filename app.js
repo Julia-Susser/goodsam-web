@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
 const url = require('url');
 
-GoogleSpreadsheet = require('google-spreadsheet'),
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+ 
 
 
 
