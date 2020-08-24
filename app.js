@@ -48,5 +48,5 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.listen(port, () => console.log(`listening on port ${port}!`));
 
 
-
+require('./signup-router.js')(app,firebase);
 require('./login-router.js')(app,firebase);

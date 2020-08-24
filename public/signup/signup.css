@@ -1,0 +1,64 @@
+body {
+  background-color: orange;
+  font-size: 20px;
+}
+
+img{
+  width:500px;
+}
+#sub{
+  margin-top: 30px;
+  border: none;
+  background-color: black;
+  color:white;
+  font-size:25px;
+}
+form{
+  margin-top:40px;
+  margin-left: auto;
+  margin-right: auto;
+  width:710px;
+  background: rgba(255, 255, 255,1);
+  padding:10px;
+  border-radius: 25px;
+  text-align:center;
+  background: rgba(255, 255, 255, 0.7);
+}
+#email, #password{
+  width:700px;
+  height:50px;
+  margin-bottom: 20px;
+
+}
+#first-name, #last-name{
+  height:50px;
+  width:350px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+p, a{
+  font-size:15px;
+  text-align:center;
+  color:gray;
+}
+/* responsive, form small screens, use 13px font size */
+@media (max-width: 600px) {
+  img{
+    width:200px;
+  }
+    body {
+        font-size: 13px;
+    }
+    #email, #password{
+      width:200px;
+    }
+    #first-name, #last-name{
+      width:100px;
+    }
+    form{
+      margin-top:100px;
+      width:210px;
+    }
+}
