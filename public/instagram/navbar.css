@@ -1,0 +1,170 @@
+
+body{
+  margin:0;
+  padding:0;
+
+}
+
+.topnav {
+  background-color: #fceed1;
+  overflow: hidden;
+  padding-left:0px;
+  /* hides overflow */
+}
+#logo{
+  width:150px;
+  height:100px;
+  padding-top:25px;
+  float:left;
+  padding-right:40%;
+  padding-left:40px;
+}
+/* Style the links inside the navigation bar */
+.nav_ref{
+  padding-right: 15px;
+  padding-top:70px;
+  padding-bottom:79px;
+  float: left;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  text-decoration: underline;
+}
+
+
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+
+
+}
+#logout{
+  margin-left: 20px;
+}
+.dropdown .dropbtn {
+
+  padding-top:70px;
+  padding-bottom:70px;
+  color: black;
+  font-family: sans-serif;
+  font-size: 15px; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.dropbtn:hover{
+  text-decoration: underline;
+}
+
+.dropdown-content {
+  margin-top:-25px;
+  width:100px;
+  display: none;
+  position: absolute;
+  background-color: pink;
+  background: white;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding-top:15px;
+  padding-bottom:15px;
+  display: block;
+  color: black;
+  padding-left:5px;
+  text-align: left;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 15px;
+  border: 2px solid #c89666;
+}
+
+.dropdown:hover .dropdown-content{
+
+  display:block;
+}
+
+
+
+
+
+.dropdown-content:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #c89666;
+  right: 42%;
+  top: -20px;
+}
+
+.dropdown-content:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+
+  right: 50%;
+  top: -18px;
+}
+
+
+@media (max-width: 1200px) {
+  #logo{
+    padding-right:20%;
+    padding-left:40px;
+  }
+}
+
+
+
+
+@media (max-width: 600px) {
+  .topnav{
+    padding-left:0px;
+  }
+  .nav_ref{
+    width:100%;
+    text-align:center;
+    padding-top:0px;
+    padding-bottom:0px;
+
+  }
+  .dropdown .dropbtn {
+    padding-top:0px;
+    padding-bottom:0px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 15px; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  .dropdown{
+    padding-top:0px;
+    padding-bottom:0px;
+    width:100%;
+    text-align:center;
+
+  }
+  .dropdown-content {
+    margin-top:0px;
+    width:100%;
+    padding-left:0px;
+    padding-right:0px;
+
+  }
+  #logo{
+    display:none;
+  }
+}
