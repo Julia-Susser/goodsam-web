@@ -3,9 +3,10 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
 const urlShortener = require('node-url-shortener');
+
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
-    
+
 });
 
 app.listen(port, () => console.log(`url-shortener listening on port ${port}!`));
