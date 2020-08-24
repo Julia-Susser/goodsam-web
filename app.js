@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
 const url = require('url');
 
-const {google} = require('googleapis');
+const {google} = require('googlea-spreadsheets');
 
 
 
