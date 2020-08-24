@@ -9,7 +9,7 @@
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <p id="authorize_button" style="display: none;"></p>
-    <p id="signout_button" style="display: none;"></p>
+    <p id="signout_button" style="display: none;">Sign Out</p>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
@@ -48,8 +48,12 @@
           scope: SCOPES
         }).then(function () {
           // Listen for sign-in state changes.
-          
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+          authorizeButton.onclick = handleAuthClick;
+          signoutButton.onclick = handleSignoutClick;
         }, function(error) {
           appendPre(JSON.stringify(error, null, 2));
         });
@@ -59,12 +63,30 @@
        *  Called when the signed in status changes, to update the UI
        *  appropriately. After a sign-in, the API is called.
        */
+      function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+          authorizeButton.style.display = 'none';
 
+          listMajors();
+        } else {
+          authorizeButton.style.display = 'block';
+
+        }
+      }
 
       /**
        *  Sign in the user upon button click.
        */
+      function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+      }
 
+      /**
+       *  Sign out the user upon button click.
+       */
+      function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+      }
 
       /**
        * Append a pre element to the body containing the given message
