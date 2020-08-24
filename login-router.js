@@ -1,8 +1,6 @@
 const https = require('https');
 const path = require('path');
-const fs = require('fs')
-const readline = require('readline');
-const {google} = require('googleapis');
+
 module.exports = function(app,firebase){
     app.get('/', function(req, res) {
     res.redirect("/login")
@@ -10,10 +8,7 @@ module.exports = function(app,firebase){
 
 
     app.get('/login', function(req, res) {
-
-
-      
-        res.sendFile(path.join(__dirname, '/mynewfile3.txt'));
+          res.sendFile(path.join(__dirname, '/public/login/login.html'));
     });
 
     app.get('/login:/home', function(req, res) {
