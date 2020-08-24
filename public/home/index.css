@@ -1,0 +1,19 @@
+body {
+  background: rgba(255, 140,0, 0.7);
+}
+button{
+  backaground-color: orange;
+}
+
+#slides{
+  width:100%;
+}
+#img1, #img2, #img3{
+  width:100%
+}
+#english{
+  font-size:15px;
+}
+#welcome{
+  text-align:center;
+}
