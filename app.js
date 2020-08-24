@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 const admin = require('firebase-admin');
 var firebase = require('firebase');
 const fs = require('fs');
@@ -11,24 +11,6 @@ const https = require('https');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
 const url = require('url');
-
-const { GoogleSpreadsheet } = require('google-spreadsheet');
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 admin.initializeApp({
