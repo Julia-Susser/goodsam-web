@@ -1,16 +1,18 @@
 const https = require('https');
 const path = require('path');
 const fs = require('fs')
+const readline = require('readline');
+const {google} = require('googleapis');
+function hey(){
 
 
+
+}
 
 
 module.exports = function(app,firebase){
 
     app.get('/', function(req, res) {
-      const readline = require('readline');
-      const {google} = require('googleapis');
-
       // If modifying these scopes, delete token.json.
       const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
       // The file token.json stores the user's access and refresh tokens, and is
@@ -22,7 +24,10 @@ module.exports = function(app,firebase){
       fs.readFile('credentials.json', (err, content) => {
         if (err) return console.log('Error loading client secret file:', err);
         // Authorize a client with credentials, then call the Google Sheets API.
+
         authorize(JSON.parse(content), listMajors);
+        setTimeout(function(){ res.sendFile(path.join(__dirname, '/public/pit_stop_info.txt')); console.log("hey") }, 500);
+
       });
 
       /**
@@ -83,8 +88,8 @@ module.exports = function(app,firebase){
       function listMajors(auth) {
         const sheets = google.sheets({version: 'v4', auth});
         sheets.spreadsheets.values.get({
-          spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-          range: 'Class Data!A2:E',
+          spreadsheetId: '1qb3nY8_7PmjFfU1a6aJfYKS9AEV9Q1VXVc8WL0Mc6EE',
+          range: 'A:E',
         }, (err, res) => {
           if (err) return console.log('The API returned an error: ' + err);
           const rows = res.data.values;
@@ -99,10 +104,14 @@ module.exports = function(app,firebase){
           }
           fs.writeFile('public/pit_stop_info.txt', rows, function (err) {
             if (err) throw err;
-            });
+            all = ''
+            console.log('Saved!');
+
+          });
         });
-        res.sendFile(path.join(__dirname, '/public/pit_stop_info.txt'));
+
       }
+
     });
 
 

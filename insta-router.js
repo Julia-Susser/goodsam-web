@@ -41,6 +41,7 @@ app.get('/instagram', function(req, res){
       });
 
     })
+    
     res.sendFile(path.join(__dirname, '/public/instagram/instagram.html'));
   })
 
