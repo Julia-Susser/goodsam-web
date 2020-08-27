@@ -2,6 +2,7 @@ const https = require('https');
 const path = require('path');
 const admin = require('firebase-admin');
 const fs = require('fs')
+
 module.exports = function(app,firebase){
   app.get('/signup', function(req, res) {
     const readline = require('readline');
