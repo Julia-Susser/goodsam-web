@@ -14,7 +14,9 @@
     "firebase": "^7.19.0",
     "firebase-admin": "^9.1.1",
     "fs": "0.0.1-security",
+    "google-apis": "^1.0.0",
     "google-spreadsheet": "^3.0.13",
+    "googleapis": "^59.0.0",
     "https": "^1.0.0",
     "node-url-shortener": "^1.1.9",
     "nodemailer": "^6.4.11"
