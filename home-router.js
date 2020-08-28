@@ -17,7 +17,7 @@ app.get('/name', function(req, res) {
 });
 
 app.get('/home', function(req, res) {
-  
+
 
 var user = firebase.auth().currentUser;
 
@@ -25,7 +25,7 @@ if (user) {
   res.sendfile('./public/home/indexx.html');
 } else {
   // No user is signed in.
-  res.send("nope")
+  res.redirect("/login")
 }
 });
 }

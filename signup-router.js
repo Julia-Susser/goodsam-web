@@ -16,12 +16,16 @@ const TOKEN_PATH = 'gmail-router/token.json';
 module.exports = function(app,firebase){
   app.get('/signup', function(req, res) {
     require('./sendMail.js')();
+    var user = firebase.auth().currentUser;
+    if (user) {
+    res.redirect('/home')
+    } else {
+      // No user is signed in.
+      res.sendFile(path.join(__dirname, '/public/login/login.html'));
+    }
+});
 
 
-
-
-    res.sendFile(path.join(__dirname, '/public/signup/signup.html'));
-  });
 
 
 

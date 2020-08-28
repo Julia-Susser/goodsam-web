@@ -12,7 +12,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
 const url = require('url');
 
-
+app.get('/logout', function(req, res) {
+  firebase.auth().signOut().then(function() {
+  res.redirect("/login")
+}).catch(function(error) {
+  // An error happened.
+})
+});
 
 
 admin.initializeApp({

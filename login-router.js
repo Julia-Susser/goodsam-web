@@ -7,10 +7,25 @@ const fs = require('fs')
 module.exports = function(app,firebase){
 
     app.get('/', function(req, res) {
-      res.redirect('/login')
+      var user = firebase.auth().currentUser;
+
+      if (user) {
+      res.redirect('/home')
+      } else {
+        // No user is signed in.
+        res.redirect('/login')
+      }
+
     });
     app.get('/login', function(req, res) {
-          res.sendFile(path.join(__dirname, '/public/login/login.html'));
+      var user = firebase.auth().currentUser;
+      if (user) {
+      res.redirect('/home')
+      } else {
+        // No user is signed in.
+        res.sendFile(path.join(__dirname, '/public/login/login.html'));
+      }
+
     });
 
     app.get('/login:/home', function(req, res) {

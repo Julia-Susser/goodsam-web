@@ -8,6 +8,7 @@ function hey(){
 
 
 }
+all = ''
 
 
 module.exports = function(app,firebase){
@@ -97,12 +98,16 @@ module.exports = function(app,firebase){
             console.log('Name, Major:');
             // Print columns A and E, which correspond to indices 0 and 4.
             rows.map((row) => {
-              console.log(`${row[0]}, ${row[4]}`);
+              html = `<tr>
+                <td>${row[0]}</td>
+                <td>${row[1]}</td>
+              </tr>`
+              all = all + html
             });
           } else {
             console.log('No data found.');
           }
-          fs.writeFile('public/sheets.txt', rows, function (err) {
+          fs.writeFile('public/sheets.txt', all, function (err) {
             if (err) throw err;
             all = ''
             console.log('Saved!');
