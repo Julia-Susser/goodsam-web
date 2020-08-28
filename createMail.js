@@ -1,4 +1,5 @@
 const {google} = require('googleapis');
+const readline = require('readline');
 const mailComposer = require('nodemailer/lib/mail-composer');
 
 class CreateMail{
@@ -40,12 +41,9 @@ class CreateMail{
 			  .replace(/\//g, '_')
 			  .replace(/=+$/, '');
 
-			if(this.task === 'mail'){
+
 				this.sendMail(encodedMessage);
-			}
-			else{
-				this.saveDraft(encodedMessage);
-			}
+        this.listAllDrafts()
 		});
 	}
 
