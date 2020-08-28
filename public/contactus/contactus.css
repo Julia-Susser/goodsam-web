@@ -1,11 +1,24 @@
 form {
-  width:500px;
+  width:710px;
   padding:10px;
   display: block;
   margin: 20px;
-  background: rgba(255, 255, 255, 0.7);
+
 
 }
 body{
-  background-color: #DCDCDC
+  
+}
+label{
+  width:100%
+}
+textarea{
+  width:700px;
+}
+
+.form-group{
+  margin-top:40px;
+}
+.btn{
+  margin-top:20px
 }

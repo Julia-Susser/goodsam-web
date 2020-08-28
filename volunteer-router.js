@@ -13,7 +13,7 @@ all = ''
 
 module.exports = function(app,firebase){
 
-    app.get('/volenteer', function(req, res) {
+    app.get('/volunteer', function(req, res) {
       // If modifying these scopes, delete token.json.
       const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
       // The file token.json stores the user's access and refresh tokens, and is
@@ -27,7 +27,7 @@ module.exports = function(app,firebase){
         // Authorize a client with credentials, then call the Google Sheets API.
 
         authorize(JSON.parse(content), listMajors);
-        res.sendFile(path.join(__dirname, '/public/volenteer/volenteer.html')); console.log("sent");
+        res.sendFile(path.join(__dirname, '/public/volunteer/volenteer.html')); console.log("sent");
 
       });
 
@@ -93,14 +93,34 @@ module.exports = function(app,firebase){
           range: 'A:E',
         }, (err, res) => {
           if (err) return console.log('The API returned an error: ' + err);
-          const rows = res.data.values;
+          var rows = res.data.values;
           if (rows.length) {
-            console.log('Name, Major:');
+            all = `
+            <tr>
+              <th>
+                Oppurtunity
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                Type
+              </th>
+              <th>
+                Sign Up
+              </th>
+
+              </tr>
+            `
+            rows = rows.slice(1,rows.length)
+
             // Print columns A and E, which correspond to indices 0 and 4.
             rows.map((row) => {
               html = `<tr>
                 <td>${row[0]}</td>
                 <td>${row[1]}</td>
+                <td>${row[2]}</td>
+                <td>Not attending: <button>Sign Up</button></td>
               </tr>`
               all = all + html
             });

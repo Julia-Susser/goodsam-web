@@ -19,7 +19,7 @@ document.write(
       </p>
 
       <div class="dropdown-content">
-      <a href="/volenter">Volenteer</a>
+      <a href="/volunteer">Volunteer</a>
       <a href="./Wishlist">Wishlist</a>
       <a href="">Amazon Wishlist</a>
       </div>

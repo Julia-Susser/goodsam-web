@@ -11,7 +11,7 @@ const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly','https://www.go
 const TOKEN_PATH = 'gmail-creds/token.json';
 
 
-module.exports = function(){
+module.exports = function(subject, comment){
 
 
   // Load client secrets from a local file.
@@ -78,7 +78,7 @@ module.exports = function(){
 
   function getAuth(auth){
     var Mail = require('./createMail.js');
-      var obj = new Mail(auth, "jsusser@urbanschool.org", 'Subject', 'Body', 'mail');
+      var obj = new Mail(auth, "jsusser@urbanschool.org", subject, comment, 'mail');
 
       //'mail' is the task, if not passed it will save the message as draft.
       //attachmentSrc array is optional.
