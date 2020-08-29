@@ -58,3 +58,4 @@ require('./router/insta-router.js')(app,firebase);
 require('./router/login-router.js')(app,firebase);
 require('./signup-router.js')(app,firebase, admin);
 require('./router/home-router.js')(app,firebase);
+require('./router/volunteer-router.js')(app,firebase);
