@@ -19,15 +19,27 @@ module.exports = function(app,firebase){
       // The file token.json stores the user's access and refresh tokens, and is
       // created automatically when the authorization flow completes for the first
       // time.
-      const TOKEN_PATH = 'token.json';
+      const TOKEN_PATH = './gsheets-creds/token.json';
 
       // Load client secrets from a local file.
-      fs.readFile('credentials.json', (err, content) => {
+      fs.readFile('./gsheets-creds/credentials.json', (err, content) => {
         if (err) return console.log('Error loading client secret file:', err);
         // Authorize a client with credentials, then call the Google Sheets API.
 
         authorize(JSON.parse(content), listMajors);
-        res.sendFile(path.join(__dirname, '/public/volunteer/volenteer.html')); console.log("sent");
+        var user = firebase.auth().currentUser;
+
+        if (user) {
+          var router = __dirname
+          router = router.split("/router")
+          router = router[0]
+          res.sendFile(path.join(router, '/public/volunteer/volenteer.html'));
+          console.log("sent");
+        } else {
+          // No user is signed in.
+          res.redirect("/login")
+        }
+
 
       });
 

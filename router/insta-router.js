@@ -1,7 +1,7 @@
 const https = require('https');
 const path = require('path');
 var fs = require('fs');
-module.exports = function(app){
+module.exports = function(app, firebase){
 
 
 
@@ -33,7 +33,7 @@ app.get('/instagram', function(req, res){
         </div>`
         all = all + html
       }
-      fs.writeFile('public/ajax_info.txt', all, function (err) {
+      fs.writeFile('public/instagram.txt', all, function (err) {
         if (err) throw err;
         all = ''
         console.log('Saved!');
@@ -41,8 +41,18 @@ app.get('/instagram', function(req, res){
       });
 
     })
-    
-    res.sendFile(path.join(__dirname, '/public/instagram/instagram.html'));
+    var user = firebase.auth().currentUser;
+
+    if (user) {
+      var router = __dirname
+      router = router.split("/router")
+      router = router[0]
+      res.sendFile(path.join(router, '/public/instagram/instagram.html'));
+    } else {
+      // No user is signed in.
+      res.redirect("/login")
+    }
+
   })
 
   });

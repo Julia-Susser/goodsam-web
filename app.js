@@ -42,9 +42,9 @@ app.listen(port, () => console.log(`listening on port ${port}!`));
 
 
 
-require('./volunteer-router.js')(app,firebase);
-require('./home-router.js')(app,firebase);
-require('./contactus-router.js')(app,firebase);
-require('./insta-router.js')(app,firebase);
-require('./signup-router.js')(app,firebase);
-require('./login-router.js')(app,firebase);
+require('./router/volunteer-router.js')(app,firebase);
+require('./router/home-router.js')(app,firebase);
+require('./router/contactus-router.js')(app,firebase);
+require('./router/insta-router.js')(app,firebase);
+require('./router/signup-router.js')(app,firebase);
+require('./router/login-router.js')(app,firebase);

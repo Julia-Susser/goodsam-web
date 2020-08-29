@@ -3,22 +3,33 @@ form {
   padding:10px;
   display: block;
   margin: 20px;
-
+  background: rgba(240, 100, 19, 0.7);
+  margin-left: auto;
+  margin-right: auto;
 
 }
 body{
-  
+
 }
 label{
   width:100%
 }
-textarea{
-  width:700px;
+textarea {
+  width:100%;
+  resize: none;
 }
 
 .form-group{
-  margin-top:40px;
+  margin-top:20px;
+  width:100%;
+
 }
 .btn{
   margin-top:20px
+}
+p{
+  margin-top:-1px;
+text-align:right;
+
+
 }

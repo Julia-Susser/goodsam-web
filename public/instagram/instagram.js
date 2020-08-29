@@ -8,5 +8,5 @@ xhttp.onreadystatechange = function() {
     this.responseText;
   }
 };
-xhttp.open("GET", "/ajax_info.txt", true);
+xhttp.open("GET", "/instagram.txt", true);
 xhttp.send()

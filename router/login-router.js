@@ -23,7 +23,10 @@ module.exports = function(app,firebase){
       res.redirect('/home')
       } else {
         // No user is signed in.
-        res.sendFile(path.join(__dirname, '/public/login/login.html'));
+        var router = __dirname
+        router = router.split("/router")
+        router = router[0]
+        res.sendFile(path.join(router, '/public/login/login.html'));
       }
 
     });

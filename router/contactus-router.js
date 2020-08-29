@@ -9,8 +9,18 @@ module.exports = function(app, firebase){
 
 var all = ''
 app.get('/contactus', function(req, res){
+  var user = firebase.auth().currentUser;
 
-    res.sendFile(path.join(__dirname, '/public/contactus/contactus.html'));
+  if (user) {
+    var router = __dirname
+    router = router.split("/router")
+    router = router[0]
+    res.sendFile(path.join(router, '/public/contactus/contactus.html'));
+  } else {
+    // No user is signed in.
+    res.redirect("/login")
+  }
+
 
   });
 var nemail = ''

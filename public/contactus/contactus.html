@@ -7,9 +7,7 @@
 <script type="text/javascript" src="../navbar.js"></script>
 <form class="p-3" method="POST" action="/contactus-sub">
 
-  <h3> Send Us a Message</h3>
-  <h4>We will respond in Email</h4>
-
+  <h3>Send us a Message. We will send you an email response soon.</h3>
   <div class="form-group" >
     <input type="radio" name="dif" value="y" onclick="load()">
     <label for="y">Different Email than Account?</label><br>
@@ -24,12 +22,14 @@
 
   <div class="form-group" id="subject">
     <label>Subject</label>
-    <textarea class="form-control" rows="5"name='subject'></textarea>
+    <textarea class="form-control" id="subjecty" maxlength="40" rows="2"name='subject'></textarea>
+    <p id='remainingC'>40 characters left</p>
   </div>
 
   <div class="form-group">
     <label>Comments and Questions</label>
-    <textarea class="form-control" id="comments" rows="20" name='comments'></textarea>
+    <textarea class="form-control" id="commenty" maxlength=700 id="comments" rows="20" name='comments'></textarea>
+    <p id='remainingD'>700 characters left</p>
   </div>
 
 
