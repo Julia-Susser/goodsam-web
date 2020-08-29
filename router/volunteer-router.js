@@ -128,11 +128,16 @@ module.exports = function(app,firebase){
 
             // Print columns A and E, which correspond to indices 0 and 4.
             rows.map((row) => {
+              if (row[2] == "Long Term"){
+                var type = "participating"
+              } else{
+                var type = "attending"
+              }
               html = `<tr>
                 <td>${row[0]}</td>
                 <td>${row[1]}</td>
                 <td>${row[2]}</td>
-                <td>Not attending: <button>Sign Up</button></td>
+                <td>Not ${type}: <button>Sign Up</button></td>
               </tr>`
               all = all + html
             });

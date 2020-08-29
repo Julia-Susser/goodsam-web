@@ -18,25 +18,21 @@ module.exports = function(app,firebase, admin){
       const password = req.query.password;
       var name = fname+" " + lname
       console.log(name)
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+      admin.auth().createUser({
+        email: email,
+        password: password,
+        displayName: name,
+      })
     .then(function(userRecord) {
       console.log('Successfully created new user:', userRecord.uid);
       firebase.auth().signInWithEmailAndPassword(email, password).then(function(result) {
         console.log(email)
-
+        res.send("success")
 
       })
-      var user = firebase.auth().currentUser;
 
-      user.updateProfile({
-      displayName: name
-      }).then(function() {
-      // Update successful.
-      console.log("success")
-      res.send("success")
-      }).catch(function(error) {
-      // An error happened.
-      });
+
+
 
     })
     .catch(function(error) {

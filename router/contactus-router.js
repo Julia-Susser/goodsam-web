@@ -25,9 +25,9 @@ app.get('/contactus', function(req, res){
   });
 var nemail = ''
 var comment =''
-app.post('/contactus-sub', function(req, res) {
-      nemail = req.body.new_email;
-      comment = req.body.comments;
+app.get('/contactus-sub', function(req, res) {
+      nemail = req.query.new_email;
+      comment = req.query.comments;
 
       subject = req.body.subject;
       if (nemail === ''){

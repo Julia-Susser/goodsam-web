@@ -28,3 +28,27 @@ document.getElementById("commenty").onkeypress = function(){
 
 
 }
+function load() {
+
+var n_email = document.getElementById("n-email").value
+var subject = document.getElementById("subjecty").value
+var comment = document.getElementById("commenty").value
+
+
+
+var xhttp = new XMLHttpRequest();
+console.log("hey")
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+
+    document.getElementById("form").innerHTML = this.responseText
+
+
+
+  }
+};
+const url = "/contactus-sub?new_email="+n_email+"&comment="+subject+"&subject="+comment
+
+xhttp.open("GET", url, true);
+xhttp.send();
+ }

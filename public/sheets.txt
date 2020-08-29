@@ -23,5 +23,5 @@
                 <td>Vision Academy Volenteers</td>
                 <td>All Spring</td>
                 <td>Long Term</td>
-                <td>Not attending: <button>Sign Up</button></td>
+                <td>Not participating: <button>Sign Up</button></td>
               </tr>
