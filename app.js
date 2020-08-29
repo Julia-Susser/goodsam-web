@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 3000;
 const admin = require('firebase-admin');
 var firebase = require('firebase');
 const fs = require('fs');
@@ -12,13 +12,25 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
 const url = require('url');
 
+
+
+
+
 app.get('/logout', function(req, res) {
   firebase.auth().signOut().then(function() {
   res.redirect("/login")
 }).catch(function(error) {
   // An error happened.
-})
 });
+
+
+
+
+});
+
+
+
+
 
 
 admin.initializeApp({
@@ -41,10 +53,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.listen(port, () => console.log(`listening on port ${port}!`));
 
 
-
-require('./router/volunteer-router.js')(app,firebase);
-require('./router/home-router.js')(app,firebase);
 require('./router/contactus-router.js')(app,firebase);
 require('./router/insta-router.js')(app,firebase);
-require('./router/signup-router.js')(app,firebase);
 require('./router/login-router.js')(app,firebase);
+require('./signup-router.js')(app,firebase, admin);
+require('./router/home-router.js')(app,firebase);

@@ -15,8 +15,8 @@
 
               </tr>
             <tr>
-                <td>food drive</td>
-                <td>may 30th</td>
+                <td>Food Drive</td>
+                <td>May 30th</td>
                 <td>Event</td>
                 <td>Not attending: <button>Sign Up</button></td>
               </tr><tr>

@@ -142,7 +142,6 @@ module.exports = function(app,firebase){
           fs.writeFile('public/sheets.txt', all, function (err) {
             if (err) throw err;
             all = ''
-            console.log('Saved!');
 
           });
         });

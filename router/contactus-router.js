@@ -35,7 +35,7 @@ app.post('/contactus-sub', function(req, res) {
         nemail = user.email;
       }
       comment = nemail + comment
-      require('./sendMail.js')(subject, comment);
+      require('../sendMail.js')(subject, comment);
       res.send("Thank You For Sending Us A Message! We will get back to you as soon as possible via email.")
 });
 }
