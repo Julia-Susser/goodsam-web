@@ -78,6 +78,8 @@ module.exports = function(subject, comment){
 
   function getAuth(auth){
     var Mail = require('./createMail.js');
+      console.log("hey")
+      console.log(subject)
       var obj = new Mail(auth, "jsusser@urbanschool.org", subject, comment, 'mail');
 
       //'mail' is the task, if not passed it will save the message as draft.
